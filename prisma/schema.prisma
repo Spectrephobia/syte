@@ -1,0 +1,168 @@
+// BALAND Cultural & Educational Platform - Database Schema
+// Prisma + SQLite (sandbox-compatible; structured for easy PostgreSQL migration)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Admin users (site administrators)
+// ---------------------------------------------------------------------------
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("admin") // admin | editor
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions AdminSession[]
+}
+
+model AdminSession {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------------------
+// Global site settings (singleton pattern: id = "default")
+// ---------------------------------------------------------------------------
+model SiteSettings {
+  id              String   @id @default("default")
+  brandNameFa     String   @default("بالند")
+  brandNameEn     String   @default("BALAND")
+  sloganFa        String   @default("بالند تا بالندگی همراه شماست")
+  sloganEn        String   @default("BALAND — Growing together toward flourishing")
+  addressFa       String?
+  addressEn       String?
+  phone           String?
+  email           String?
+  footerNoteFa   String?
+  footerNoteEn   String?
+  ogImage         String?
+  mapUrl          String?
+  updatedAt       DateTime @updatedAt
+}
+
+model SocialLink {
+  id        String  @id @default(cuid())
+  platform  String  @unique // instagram | telegram | whatsapp | linkedin | ...
+  url       String
+  labelFa   String?
+  labelEn   String?
+  order     Int     @default(0)
+  visible   Boolean @default(true)
+}
+
+// ---------------------------------------------------------------------------
+// Content sections (configurable blocks per page section)
+// ---------------------------------------------------------------------------
+model ContentSection {
+  id          String  @id @default(cuid())
+  key         String  @unique // e.g. "school", "children", "parenting", "games", "contact", "hero"
+  titleFa     String
+  titleEn     String
+  subtitleFa  String?
+  subtitleEn  String?
+  visible     Boolean @default(true)
+  order       Int     @default(0)
+
+  articles Article[]
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  sectionId   String
+  slug        String   @unique
+  titleFa     String
+  titleEn     String
+  excerptFa   String?
+  excerptEn   String?
+  bodyFa      String?
+  bodyEn      String?
+  coverImage  String?
+  icon        String?
+  published   Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  section ContentSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@index([sectionId])
+}
+
+// ---------------------------------------------------------------------------
+// School stages (preschool, elementary 1, elementary 2)
+// ---------------------------------------------------------------------------
+model SchoolStage {
+  id          String  @id @default(cuid())
+  key         String  @unique // "preschool" | "elementary1" | "elementary2"
+  titleFa     String
+  titleEn     String
+  descriptionFa String
+  descriptionEn String
+  ageRangeFa  String?
+  ageRangeEn  String?
+  icon        String?
+  coverImage  String?
+  visible     Boolean @default(true)
+  order       Int     @default(0)
+}
+
+// ---------------------------------------------------------------------------
+// Contact messages from parents
+// ---------------------------------------------------------------------------
+model ContactMessage {
+  id        String   @id @default(cuid())
+  parentName String
+  contact   String   // phone or email
+  subject   String
+  body      String
+  lang      String   @default("fa")
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Media assets (uploaded images/files)
+// ---------------------------------------------------------------------------
+model MediaAsset {
+  id        String   @id @default(cuid())
+  filename  String
+  url       String
+  mimeType  String
+  size      Int
+  altFa     String?
+  altEn     String?
+  createdAt DateTime @default(now())
+}
+
+// ---------------------------------------------------------------------------
+// Game settings (visibility + meta)
+// ---------------------------------------------------------------------------
+model GameSettings {
+  id          String  @id @default(cuid())
+  key         String  @unique // "memory" | "patterns" | "focus"
+  titleFa     String
+  titleEn     String
+  descriptionFa String?
+  descriptionEn String?
+  visible     Boolean @default(true)
+  order       Int     @default(0)
+}

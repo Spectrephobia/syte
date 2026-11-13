@@ -1,0 +1,49 @@
+# Docker Compose template for running BALAND with PostgreSQL locally.
+# This is OPTIONAL — the project runs out-of-the-box with SQLite (no Docker needed).
+#
+# Usage:
+#   1. Start Postgres:   docker compose up -d postgres
+#   2. In .env, set:    DATABASE_URL="postgresql://baland:baland_secret@localhost:5432/baland"
+#   3. Change prisma/schema.prisma provider to "postgresql"
+#   4. Run:              bun run db:push && bunx tsx prisma/seed.ts && bun run dev
+
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: baland-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: baland
+      POSTGRES_PASSWORD: baland_secret
+      POSTGRES_DB: baland
+    ports:
+      - "5432:5432"
+    volumes:
+      - baland_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U baland -d baland"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Optional: run the Next.js app in a container
+  # app:
+  #   build: .
+  #   container_name: baland-app
+  #   restart: unless-stopped
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   environment:
+  #     DATABASE_URL: "postgresql://baland:baland_secret@postgres:5432/baland"
+  #     ADMIN_EMAIL: "admin@baland.local"
+  #     ADMIN_PASSWORD: "change-me"
+  #     NEXT_PUBLIC_SITE_URL: "http://localhost:3000"
+  #   ports:
+  #     - "3000:3000"
+  #   command: bun run start
+
+volumes:
+  baland_pg_data:

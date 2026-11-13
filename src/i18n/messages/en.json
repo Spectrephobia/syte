@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "title": "BALAND | Cultural & Educational Platform",
+    "description": "BALAND is a cultural and educational community grounded in learning sciences, cognitive neuroscience, and developmental psychology. BALAND — growing together toward flourishing.",
+    "siteName": "BALAND",
+    "locale": "en_US"
+  },
+  "nav": {
+    "school": "BALAND School",
+    "children": "Children's World",
+    "parenting": "Parenting & Family",
+    "games": "Play for Growth",
+    "contact": "Contact"
+  },
+  "intro": {
+    "brandName": "BALAND",
+    "slogan": "BALAND — Growing together toward flourishing",
+    "enterCta": "Begin the journey",
+    "enterSubtitle": "Enter the world of BALAND"
+  },
+  "home": {
+    "heroTitle": "Every child is a unique world waiting to be discovered",
+    "heroDesc": "At BALAND, learning is grounded in a scientific understanding of the mind, abilities, and growth of every child.",
+    "heroCta": "Discover the world of BALAND"
+  },
+  "school": {
+    "title": "A school for understanding, growth and flourishing",
+    "desc": "At BALAND, education is more than knowledge transfer — it is a journey of discovering abilities, nurturing talents, and holistic growth.",
+    "preschool": "Preschool Center",
+    "preschoolDesc": "The beginning of the learning journey — through experience, play, discovery, and the nurturing of foundational skills.",
+    "elementary1": "Elementary — First Cycle",
+    "elementary1Desc": "Building the foundations of learning, strengthening curiosity, and nurturing cognitive and social skills.",
+    "elementary2": "Elementary — Second Cycle",
+    "elementary2Desc": "Expanding abilities, independent thinking, responsibility, and readiness for the next stages of growth.",
+    "learnMore": "Learn more"
+  },
+  "children": {
+    "title": "Understanding the world of our children",
+    "subtitle": "A space for understanding topics related to children's growth and learning.",
+    "readMore": "Read more"
+  },
+  "parenting": {
+    "title": "Family companionship is part of the journey to flourishing",
+    "desc": "Children grow within the family — through everyday relationships and shared experiences. Understanding their world leads to more meaningful companionship.",
+    "readMore": "Read more"
+  },
+  "games": {
+    "title": "Play, discover, grow",
+    "subtitle": "A space for cognitive play and simple educational activities.",
+    "play": "Start game",
+    "restart": "Play again",
+    "score": "Score",
+    "moves": "Moves",
+    "time": "Time",
+    "memory": {
+      "title": "Visual Memory",
+      "desc": "Find the matching pairs. Strengthen your memory!"
+    },
+    "patterns": {
+      "title": "Pattern Discovery",
+      "desc": "Find the next piece and complete the pattern."
+    },
+    "focus": {
+      "title": "Focus & Observation",
+      "desc": "Find the target shape among the elements."
+    },
+    "win": "Well done! You completed the game.",
+    "next": "Next level",
+    "disclaimer": "These games are recreational activities and skill exercises — they are not psychological diagnostic tools or scientific talent assessments."
+  },
+  "contact": {
+    "title": "Get in touch with BALAND",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "social": "Social",
+    "form": {
+      "title": "Contact form",
+      "parentName": "Parent or guardian name",
+      "contact": "Phone or email",
+      "subject": "Subject",
+      "body": "Message",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Your message was sent successfully. We'll be in touch soon.",
+      "error": "Something went wrong. Please try again.",
+      "required": "This field is required.",
+      "invalid": "The value entered is invalid."
+    },
+    "noAddress": "Contact information will be added by the BALAND team soon.",
+    "noSocial": "Social profiles will be available soon."
+  },
+  "admin": {
+    "title": "BALAND Admin",
+    "login": "Admin sign in",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "logout": "Sign out",
+    "invalidCreds": "Invalid email or password.",
+    "dashboard": "Dashboard",
+    "messages": "Messages",
+    "articles": "Articles",
+    "settings": "Site settings",
+    "contactInfo": "Contact info",
+    "social": "Social links",
+    "stages": "School stages",
+    "media": "Media assets",
+    "games": "Games",
+    "sections": "Sections",
+    "backToSite": "Back to site",
+    "stats": {
+      "messages": "New messages",
+      "articles": "Published articles",
+      "stages": "School stages",
+      "media": "Media files"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "create": "Create",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "markRead": "Mark as read",
+      "markUnread": "Mark as unread"
+    },
+    "fields": {
+      "titleFa": "Title (Fa)",
+      "titleEn": "Title (En)",
+      "subtitleFa": "Subtitle (Fa)",
+      "subtitleEn": "Subtitle (En)",
+      "bodyFa": "Body (Fa)",
+      "bodyEn": "Body (En)",
+      "excerptFa": "Excerpt (Fa)",
+      "excerptEn": "Excerpt (En)",
+      "icon": "Icon",
+      "order": "Order",
+      "visible": "Visible",
+      "published": "Published",
+      "platform": "Platform",
+      "url": "URL",
+      "labelFa": "Label (Fa)",
+      "labelEn": "Label (En)",
+      "coverImage": "Cover image",
+      "phone": "Phone",
+      "addressFa": "Address (Fa)",
+      "addressEn": "Address (En)",
+      "email": "Email",
+      "brandNameFa": "Brand name (Fa)",
+      "brandNameEn": "Brand name (En)",
+      "sloganFa": "Slogan (Fa)",
+      "sloganEn": "Slogan (En)",
+      "footerNoteFa": "Footer note (Fa)",
+      "footerNoteEn": "Footer note (En)",
+      "mapUrl": "Map embed URL",
+      "descriptionFa": "Description (Fa)",
+      "descriptionEn": "Description (En)",
+      "ageRangeFa": "Age range (Fa)",
+      "ageRangeEn": "Age range (En)"
+    },
+    "upload": {
+      "title": "Upload file",
+      "drop": "Drop a file here or click to browse",
+      "hint": "Images up to 5MB — jpg, png, webp, svg",
+      "success": "File uploaded successfully.",
+      "error": "Upload failed."
+    }
+  },
+  "common": {
+    "language": "Language",
+    "theme": "Theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "close": "Close",
+    "menu": "Menu",
+    "loading": "Loading...",
+    "noData": "No items found.",
+    "confirmDelete": "Are you sure you want to delete?",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "brandDesc": "BALAND — a cultural and educational community for the flourishing of every child."
+  }
+}
